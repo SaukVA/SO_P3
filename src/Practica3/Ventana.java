@@ -34,7 +34,7 @@ public class Ventana extends Frame implements ActionListener{
 		next = new Button("Start");
 		salir = new Button("Exit");
 		this.add(canvas, BorderLayout.CENTER);
-		p.setLayout(new GridLayout(1,2));
+		p.setLayout(new GridLayout(1,3));
 		p.add(next);
 		p.add(salir);
 		this.add(p, BorderLayout.SOUTH);
@@ -64,13 +64,10 @@ public class Ventana extends Frame implements ActionListener{
 				// recorro todo lo que he leido del fichero y lo intento meter en la memoria.
 				for(int i = 0; i < Principal.em.size(); i++){
 					if(Principal.em.get(i).getInstanteLlegada() <= instante){
-						// quitais el if..else y llamais mejorHueco
 						if(Principal.opcion == 1){
-							// insertar mejor hueco
 							insertado = Principal.memoria.primerHueco(Principal.em.get(i));
 						}
 						else{
-							// insertar primer hueco.
 							insertado = Principal.memoria.mejorHueco(Principal.em.get(i));
 						}
 						// si lo consigo meter, lo quito de la lista de entrada.

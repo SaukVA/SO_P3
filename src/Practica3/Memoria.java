@@ -106,9 +106,7 @@ public class Memoria{
 	
 	public void decrementar(){
 		int k;
-		
-		// LE QUITO UNA UNIDAD A TODOS LOS PROCESOS QUE HAY EN LA MEMORIA
-		// AL CONTADOR DE TIEMPO RESTANTE.
+	
 		for(int i = 0; i < lista.size(); i++){
 			// si es un proceso decremento su tiempo restante.
 			// getPro devuelve 0 si un hueco.
@@ -141,7 +139,7 @@ public class Memoria{
 		encontrado = false;
 		posPeor = -1;
 		// busco el peor hueco para meter al nuevo.
-		// el que mas se ajuste a su tamaÃ±o es el mejor hueco.
+		// el que mas se ajuste a su tamanyo es el mejor hueco.
 		for(i = 0; i < lista.size(); i++){
 			if(lista.get(i).getPro() == 0 && lista.get(i).getTam() >= nuevo.getTamanyo()){
 				// aun no he encontrado ninguna mejor
@@ -151,7 +149,6 @@ public class Memoria{
 				else{
 					diferenciaPeor = lista.get(posPeor).getTam() - nuevo.getTamanyo();
 					diferenciaActual = lista.get(i).getTam() - nuevo.getTamanyo();
-					// para el mejor hueco cambiar esto por <
 					if(diferenciaActual < diferenciaPeor)
 						posPeor = i; // el que estoy es peor hueco :)
 				}
@@ -161,11 +158,11 @@ public class Memoria{
 		if(posPeor != -1){
 			ElementoMemoria nuevoMemoria = new ElementoMemoria(nuevo);
 			
-			i = posPeor; /// juas juas!!
+			i = posPeor;
 			
 			encontrado = true;
 			
-			// al hueco le quito el tamaï¿½o del proceso.
+			// al hueco le quito el tamanyo del proceso.
 			lista.get(i).setTam(lista.get(i).getTam() - nuevo.getTamanyo());
 	
 			// el nuevo elemento empieza donde empieza el hueco
@@ -183,7 +180,6 @@ public class Memoria{
 		return encontrado;
 	}
 	
-	@Override
 	public String toString(){
 		String resultado = "";
 		int i;
@@ -217,8 +213,8 @@ public class Memoria{
 		if(encontrado){
 			ElementoMemoria nuevoMemoria = new ElementoMemoria(nuevo);
 			
-			// al hueco le quito el tamaï¿½o del proceso.
-			// el nuevo hueco, tiene como tamaño lo que tenia menos lo que le quito del nuevo.
+			// al hueco le quito el tamanyo del proceso.
+			// el nuevo hueco, tiene como tamanyo lo que tenia menos lo que le quito del nuevo.
 			lista.get(i).setTam(lista.get(i).getTam() - nuevo.getTamanyo());
 	
 			// el nuevo elemento empieza donde empieza el hueco
